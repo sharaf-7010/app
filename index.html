@@ -4,21 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيتات اورج 2026</title>
-    
-    <!-- ========== 1. كود Social Bar مرة واحدة فقط ========== -->
-    <script type="text/javascript" src="//inhabitedgangoppose.com/00/d6/30/00d630998bfd413b77ee02ba5811fcdd.js"></script>
-    
-    <!-- ========== 2. كود Popunder (يتم تفعيله يدوياً عند التحميل فقط) ========== -->
-    <script>
-        // سيتم تفعيل هذا الكود فقط عند التحميل
-        var popunderScript = document.createElement('script');
-        popunderScript.type = 'text/javascript';
-        popunderScript.src = '//inhabitedgangoppose.com/30/18/56/3018564963abb3f0a96ca862116b7f4f.js';
-        popunderScript.id = 'adsterra-popunder';
-        // نحمله ولكن لا نفعله حتى يأتي الأمر
-        document.head.appendChild(popunderScript);
-    </script>
-    
     <style>
         /* تنسيقات عامة */
         * {
@@ -41,6 +26,12 @@
                 linear-gradient(-45deg, transparent 75%, rgba(10, 40, 60, 0.1) 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        /* ⭐️ تعديل: لإضافة مسافة أسفل الشاشة الرئيسية والشاشات الفرعية ليظهر إعلان البانر الثابت */
+        #main-screen, .sub-screen {
+            min-height: calc(100vh - 50px); /* تقليل ارتفاع الشاشة الرئيسية بمقدار ارتفاع الإعلان */
+            padding-bottom: 70px; /* مسافة كافية لـ 50px إعلان + 20px هامش */
         }
         
         /* خلفية ثابتة متعددة الألوان لشاشة البداية - تم التعديل */
@@ -68,39 +59,6 @@
             max-width: 100%;
             margin: 0 auto;
             padding: 0 10px;
-        }
-        
-        /* ========== 3. تنسيقات جديدة للإعلانات ========== */
-        
-        /* Social Bar تلقائي - سيظهر تلقائياً من الكود في head */
-        
-        /* إعلان Banner ثابت في الأسفل */
-        .sticky-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            z-index: 9998;
-            background: transparent;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /*دعم المطور*/
-        .support-developer {
-            background: linear-gradient(135deg, #8B4513, #FFD700) !important;
-            color: #000000 !important;
-            border: 2px solid #FFD700 !important;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .support-developer:hover {
-            background: linear-gradient(135deg, #FFD700, #8B4513) !important;
-            color: #FFFFFF !important;
         }
         
         /* رسالة بداية التطبيق - إرجاع التنسيق الأصلي */
@@ -380,6 +338,8 @@
             flex-direction: column;
             gap: 15px;
             padding: 15px 0;
+            /* ⭐️ تعديل: لإضافة مسافة أسفل المحتوى ليظهر إعلان البانر الثابت */
+            padding-bottom: 70px;
         }
         
         .section {
@@ -698,6 +658,8 @@
             flex-direction: column;
             gap: 15px;
             padding: 15px 0;
+            /* ⭐️ تعديل: لإضافة مسافة أسفل المحتوى ليظهر إعلان البانر الثابت */
+            padding-bottom: 70px;
         }
         
         .sub-section {
@@ -779,7 +741,6 @@
         #main-screen {
             display: none;
             background-color: rgba(10, 30, 10, 0.95);
-            min-height: 100vh;
             /* إضافة خطوط تمويجية رقيقة خفيفة */
             background-image: 
                 linear-gradient(45deg, rgba(10, 25, 10, 0.1) 25%, transparent 25%),
@@ -788,6 +749,22 @@
                 linear-gradient(-45deg, transparent 75%, rgba(10, 25, 10, 0.1) 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        /* ⭐️ إضافة: إعلان البانر الثابت في الأسفل */
+        #fixed-banner {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px; /* العرض المحدد للإعلان */
+            height: 50px; /* الارتفاع المحدد للإعلان */
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.5); 
+            border-top: 2px solid #FFD700;
+            display: none; /* يتم عرضه عند عرض الشاشة الرئيسية */
+            overflow: hidden;
+            max-width: 100%;
         }
         
         /* التجاوب مع مختلف أحجام الشاشات */
@@ -827,10 +804,6 @@
             .sidebar-item i {
                 font-size: 24px;
                 width: 30px;
-            }
-            
-            .sticky-banner {
-                height: 50px;
             }
         }
         
@@ -899,16 +872,15 @@
                 width: 28px;
             }
             
-            .sticky-banner {
-                height: 50px;
+            /* ⭐️ تعديل: عرض البانر الثابت 320px على الشاشات الصغيرة */
+            #fixed-banner {
+                width: 100%; /* اجعل العرض 100% ليناسب الشاشات الصغيرة */
             }
         }
     </style>
 </head>
 <body>
-    <!-- خلفية ثابتة متعددة الألوان لشاشة البداية -->
     <div id="startup-background">
-        <!-- رسالة بداية التطبيق -->
         <div id="startup-message">
             <button id="close-startup">✕</button>
             <h2>مكتبة سيتات ZEEKO ORG الإحترافية</h2>
@@ -919,7 +891,6 @@
         </div>
     </div>
     
-    <!-- رسالة الترحيب -->
     <div id="welcome-message">
         <h2>مرحباً بك في تطبيق سيتات اورج 2026</h2>
         <p>المقدم من العازف والمطور ZEEKO ORG</p>
@@ -929,18 +900,14 @@
         </a>
     </div>
     
-    <!-- طبقة التعتيم -->
     <div class="overlay" id="overlay"></div>
     
-    <!-- الشاشة الرئيسية -->
     <div id="main-screen">
-        <!-- الشريط العلوي -->
         <div id="header">
             <button id="menu-toggle">☰</button>
             <h1>سيتات اورج 2026</h1>
         </div>
         
-        <!-- أقسام الشاشة الرئيسية -->
         <div class="container">
             <div class="sections-container">
                 <div class="section" data-screen="new-sitats">
@@ -975,23 +942,8 @@
                 </div>
             </div>
         </div>
-        
-        <!-- ========== 4. إعلان Banner ثابت في أسفل الشاشة الرئيسية ========== -->
-        <div class="sticky-banner" id="main-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
-        </div>
     </div>
     
-    <!-- الشريط الجانبي -->
     <div id="sidebar">
         <div id="sidebar-header">
             <h2>القائمة</h2>
@@ -1006,28 +958,17 @@
         <a href="https://zeeko-org.blogspot.com/?m=1" class="sidebar-item">
             <i>🌐</i> موقعنا الإلكتروني
         </a>
-        <!-- إضافة أيقونة حول التطبيق -->
         <a href="#" class="sidebar-item" id="about-app">
             <i>ℹ️</i> حول التطبيق
         </a>
-        
-        <!-- ==========5. دعم المطور ========== -->
-        <a href="https://inhabitedgangoppose.com/p3tucc03f?key=7623dd9f41e35c434ea4f7f779466904" 
-           target="_blank" 
-           class="sidebar-item support-developer">
-            <i>💰</i> دعم المطور
-        </a>
-        
         <div class="developer-info">
             تطوير : ZEEKO ORG
         </div>
-        <!-- إضافة حقوق النشر -->
         <div class="copyright">
             جميع الحقوق محفوظة © ZEEKO ORG
         </div>
     </div>
     
-    <!-- رسالة حول التطبيق -->
     <div id="about-message">
         <h2>تطبيق سيتات اورج 2026</h2>
         <p>نقدم لكم أفخم السيتات الحصرية والإحترافية المقدمة من العازف والمطور ZEEKO ORG</p>
@@ -1036,17 +977,13 @@
         <p>تنوية!! تجنبو تحميل محتوياتنا من مواقع أخرى غير المواقع الظاهر في الشريط الجانبي</p>
         <p>للمزيد زورونا على صفحتنا في تيليجرام</p>
         
-        <!-- تذييل رسالة حول التطبيق -->
         <div class="about-footer">
-            <!-- زر الإغلاق في أقصى يسار الرسالة -->
             <button class="close-about-btn" id="close-about">إغلاق</button>
             
-            <!-- رابط تيليجرام في أقصى يمين الرسالة -->
             <a href="https://t.me/zeekoorg2025" class="telegram-link" target="_blank">تيليجرام</a>
         </div>
     </div>
     
-    <!-- رسالة الإعلان -->
     <div id="ad-message">
         <h3>قائمة السيتات</h3>
         <p>يجب عليك مشاهدة فيديو إعلاني قصير لفتح هذا القسم</p>
@@ -1056,7 +993,6 @@
         </div>
     </div>
     
-    <!-- رسالة التحميل -->
     <div id="download-message">
         <h3>التحميل</h3>
         <p>يجب عليك مشاهدة فيديو إعلاني قصير للتحميل</p>
@@ -1066,9 +1002,6 @@
         </div>
     </div>
     
-    <!-- الشاشات الفرعية -->
-    
-    <!-- شاشة السيتات الجديدة -->
     <div class="sub-screen" id="new-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="new-sitats-screen"></button>
@@ -1076,26 +1009,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="new-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        
-        <!-- ========== 6. إعلان Banner ثابت في أسفل الشاشات الفرعية ========== -->
-        <div class="sticky-banner" id="sub-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- باقي الشاشات الفرعية بنفس الهيكل -->
     <div class="sub-screen" id="popular-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="popular-sitats-screen"></button>
@@ -1103,24 +1020,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="popular-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة السيتات المنوعة -->
     <div class="sub-screen" id="mixed-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="mixed-sitats-screen"></button>
@@ -1128,24 +1031,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="mixed-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة سيتات الدبكات -->
     <div class="sub-screen" id="dabkat-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="dabkat-sitats-screen"></button>
@@ -1153,24 +1042,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="dabkat-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة السيتات العراقية -->
     <div class="sub-screen" id="iraqi-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="iraqi-sitats-screen"></button>
@@ -1178,24 +1053,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="iraqi-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة السيتات المصرية -->
     <div class="sub-screen" id="egyptian-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="egyptian-sitats-screen"></button>
@@ -1203,24 +1064,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="egyptian-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة السيتات الإحترافية -->
     <div class="sub-screen" id="pro-sitats-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="pro-sitats-screen"></button>
@@ -1228,24 +1075,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="pro-sitats-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة الأورج الملكي -->
     <div class="sub-screen" id="royal-org-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="royal-org-screen"></button>
@@ -1253,24 +1086,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="royal-org-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة الأورج الذهبي -->
     <div class="sub-screen" id="golden-org-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="golden-org-screen"></button>
@@ -1278,24 +1097,10 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="golden-org-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
-        </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
+                </div>
         </div>
     </div>
     
-    <!-- شاشة الثيمات -->
     <div class="sub-screen" id="themes-screen">
         <div class="sub-header">
             <button class="back-btn" data-screen="themes-screen"></button>
@@ -1303,21 +1108,24 @@
         </div>
         <div class="container">
             <div class="sub-sections-container" id="themes-container">
-                <!-- سيتم إضافة الأقسام ديناميكيًا -->
-            </div>
+                </div>
         </div>
-        <div class="sticky-banner">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '028705caaac1e1324c780a58e3fdbb64',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"></script>
-        </div>
+    </div>
+
+    <div id="fixed-banner">
+        <script type="text/javascript">
+          atOptions = {
+          	'key' : '028705caaac1e1324c780a58e3fdbb64',
+          	'format' : 'iframe',
+          	'height' : 50,
+          	'width' : 320,
+          	'params' : {}
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="//inhabitedgangoppose.com/028705caaac1e1324c780a58e3fdbb64/invoke.js"
+        ></script>
     </div>
 
     <script>
@@ -1328,27 +1136,27 @@
                 { name: 'سيت دي جي احترافي 📁', link: 'https://www.mediafire.com/file/m0cyckqnbdjj6ni/%25D8%25AF%25D9%258A_%25D8%25AC%25D9%258A_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC_2023.Set/file' },
                 { name: 'سيت رمضان يجمعنا 📁', link: 'https://www.mediafire.com/file/a4slpw3kq3qiyu3/%25D8%25B1%25D9%2585%25D8%25B6%25D8%25A7%25D9%2586_%25D9%258A%25D8%25AC%25D9%2585%25D8%25B9%25D9%2586%25D8%25A7_zeeko_org.Set/file' },
                 { name: 'سيــت جـزائـري 🇩🇿', link: 'https://www.mediafire.com/file/c0ha82r7irsciwz/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25B2%25D8%25A7%25D8%25A6%25D8%25B1%25D9%258A_2024_zeeko.Set/file' },
-                { name: 'سـiـت مـنـوع org 📁', link: 'https://www.mediafire.com/file/939knp07e5fyyuf/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2024.Set/file' },
-                { name: 'سـيـت مـنـــوع org 2 📁', link: 'https://www.mediafire.com/file/s52pw36qzbd2fpv/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_%25D9%2585%25D9%2586_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.Set/file' },
-                { name: 'سيت اورج مجــوز 📁', link: 'https://www.mediafire.com/file/3tat9gah8shisj4/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D8%25AC%25D9%2588%25D8%25B2_2024.Set/file' },
-                { name: 'سيت يمني لحجي 🇾🇪', link: 'https://www.mediafire.com/file/ecyzyt5me8umkdx/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D9%2584%25D8%25AD%25D8%25AC%25D9%258A_zeeko_org_.Set/file' },
-                { name: 'سيت اورج يمنi 🇾🇪', link: 'https://www.mediafire.com/file/ocbqjuku7ne695e/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF_zeeko_org_.Set/file' },
-                { name: 'سيت اورج ايقاعات 📁', link: 'https://www.mediafire.com/file/4y92mk533kda9zv/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25A7%25D9%258A%25D9%2582%25D8%25A7%25D8%25B9%25D8%25A7%25D8%25AA_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.Set/file' },
-                { name: 'سيت أصوات VIP 📁', link: 'https://www.mediafire.com/file/lm5k4xde7uc64xn/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25A7%25D8%25B5%25D9%2588%25D8%25A7%25D8%25AA_vip.Set/file' },
-                { name: 'سيت عربي خليجي 🇸🇦', link: 'https://www.mediafire.com/file/cshfe4qiand6c5t/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A_%25D8%25B9%25D9%2584%25D9%258A_%25D8%25AE%25D9%2584%25D9%258A%25D8%25AC%25D9%258A.Set/file' },
-                { name: 'سيت اورج راي 📁', link: 'https://www.mediafire.com/file/hywsa4nrfsjjjex/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B1%25D8%25A7%25D9%258A_2024_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
-                { name: 'سيت أنشودة ياطيبة 📁', link: 'https://www.mediafire.com/file/8ye8l1hbvovbf82/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%258A%25D8%25A7%25D8%25B7%25D9%258A%25D8%25A8%25D9%2587.Set/file' },
+                { name: 'سـiـت مـنـوع org 📁', link: 'https://www.mediafire.com/file/939knp07e5fyyuf/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2024.Set/file' },
+                { name: 'سـيـت مـنـــوع org 2 📁', link: 'https://www.mediafire.com/file/s52pw36qzbd2fpv/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_%25D9%2585%25D9%2586_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.Set/file' },
+                { name: 'سيت اورج مجــوز 📁', link: 'https://www.mediafire.com/file/3tat9gah8shisj4/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%2585%25D8%25AC%25D9%2588%25D8%25B2_2024.Set/file' },
+                { name: 'سيت يمني لحجي 🇾🇪', link: 'https://www.mediafire.com/file/ecyzyt5me8umkdx/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D9%2584%25D8%25AD%25D8%25AC%25D9%258A_zeeko_org_.Set/file' },
+                { name: 'سيت اورج يمنi 🇾🇪', link: 'https://www.mediafire.com/file/ocbqjuku7ne695e/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF_zeeko_org_.Set/file' },
+                { name: 'سيت اورج ايقاعات 📁', link: 'https://www.mediafire.com/file/4y92mk533kda9zv/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25A7%25D9%258A%25D9%2582%25D8%25A7%25D8%25B9%25D8%25A7%25D8%25AA_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.Set/file' },
+                { name: 'سيت أصوات VIP 📁', link: 'https://www.mediafire.com/file/lm5k4xde7uc64xn/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25A7%25D8%25B5%25D9%2588%25D8%25A7%25D8%25AA_vip.Set/file' },
+                { name: 'سيت عربي خليجي 🇸🇦', link: 'https://www.mediafire.com/file/cshfe4qiand6c5t/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A_%25D8%25B9%25D9%2584%25D9%258A_%25D8%25AE%25D9%2584%25D9%258A%25D8%25AC%25D9%258A.Set/file' },
+                { name: 'سيت اورج راي 📁', link: 'https://www.mediafire.com/file/hywsa4nrfsjjjex/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25B1%25D8%25A7%25D9%258A_2024_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
+                { name: 'سيت أنشودة ياطيبة 📁', link: 'https://www.mediafire.com/file/8ye8l1hbvovbf82/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%258A%25D8%25A7%25D8%25B7%25D9%258A%25D8%25A8%25D9%2587.Set/file' },
                 { name: 'سيت أغنية ذكريات 📁', link: 'https://www.mediafire.com/file/kdn8qfi2sm1pkoe/%25D8%25B0%25D9%2583%25D8%25B1%25D9%258A%25D8%25A7%25D8%25AA.Set/file' }
             ],
             'popular-sitats': [
-                { name: 'سيت شعبي 📁 1', link: 'https://www.mediafire.com/file/xsmp91pvurbnwm5/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25B7%25D8%25B1%25D8%25A8%25D9%258A_2024.Set/file' },
-                { name: 'سيت شعبي 📁 2', link: 'https://www.mediafire.com/file/n3s3l9g907cz0yz/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2024_.Set/file' },
-                { name: 'سيت شعبي 📁 3', link: 'https://www.mediafire.com/file/rcahj1bzr56ravw/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024_vip.Set/file' },
-                { name: 'سيت شعبي 📁 4', link: 'https://www.mediafire.com/file/99dskk7wt5dvpp4/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25287%2529_2025.Set/file' },
+                { name: 'سيت شعبي 📁 1', link: 'https://www.mediafire.com/file/xsmp91pvurbnwm5/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25B7%25D8%25B1%25D8%25A8%25D9%258A_2024.Set/file' },
+                { name: 'سيت شعبي 📁 2', link: 'https://www.mediafire.com/file/n3s3l9g907cz0yz/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2024_.Set/file' },
+                { name: 'سيت شعبي 📁 3', link: 'https://www.mediafire.com/file/rcahj1bzr56ravw/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024_vip.Set/file' },
+                { name: 'سيت شعبي 📁 4', link: 'https://www.mediafire.com/file/99dskk7wt5dvpp4/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25287%2529_2025.Set/file' },
                 { name: 'سيت شعبي شامل 📁 5', link: 'https://www.mediafire.com/file/ju91k3mupaczbky/%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25B4%25D8%25A7%25D9%2585%25D9%2584_2025_zeeko.Set/file' },
-                { name: 'سيت شعبي 6', link: 'https://www.mediafire.com/file/h3kpx9du9fmgaz9/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588.Set/file' },
+                { name: 'سيت شعبي 6', link: 'https://www.mediafire.com/file/h3kpx9du9fmgaz9/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588.Set/file' },
                 { name: 'سيت شعبي 📁 7', link: 'https://www.mediafire.com/file/ulihgmpqmv3rs9y/%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25A7%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2024.Set/file' },
-                { name: 'سيت شعبي 📁 8', link: 'https://www.mediafire.com/file/lf9ma54ynw9jak6/%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_zeeko_.Set/file' },
+                { name: 'سيت شعبي 📁 8', link: 'https://www.mediafire.com/file/lf9ma54ynw9jak6/%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_zeeko_.Set/file' },
                 { name: 'سيت شعبي 📁 9', link: 'https://t.me/zeekoorg2025/7' }
             ],
             'mixed-sitats': [
@@ -1358,43 +1166,43 @@
                 { name: 'سيت أغنية وشلون مغليك 📁', link: 'https://www.mediafire.com/file/ftki227lpjsnoy1/%25D9%2588%25D8%25B4%25D9%2584%25D9%2588%25D9%2586_%25D9%2585%25D8%25BA%25D9%2584%25D9%258A%25D9%2583_zeeko.Set/file' },
                 { name: 'سيت أغنية ياليلي وياليلاه 📁', link: 'https://www.mediafire.com/file/tt3b2iqkdusf7f7/%25D9%258A%25D8%25A7%25D9%2584%25D9%258A%25D9%2584%25D9%258A_%25D9%2588%25D9%258A%25D8%25A7%25D9%2584%25D9%258A%25D9%2584%25D8%25A7%25D9%2587_2025_zeeko_org.Set/file' },
                 { name: 'سيت أغنية يادنيا دواره 📁', link: 'https://www.mediafire.com/file/djxprv2ybl0h9la/%25D9%258A%25D8%25A7%25D8%25AD%25D9%2586%25D9%258A%25D8%25A7_%25D8%25AF%25D9%2588%25D8%25A7%25D8%25B1%25D9%2587_zeeko_2024%25282%2529.Set/file' },
-                { name: 'سيت منوع جديد 📁', link: 'https://www.mediafire.com/file/l5bwxekv4ve14no/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2025.Set/file' },
-                { name: 'سيت منوع 2 📁', link: 'https://www.mediafire.com/file/l8a5y0dymbkr04m/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF_2025.Set/file' },
+                { name: 'سيت منوع جديد 📁', link: 'https://www.mediafire.com/file/l5bwxekv4ve14no/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_2025.Set/file' },
+                { name: 'سيت منوع 2 📁', link: 'https://www.mediafire.com/file/l8a5y0dymbkr04m/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D9%2585%25D9%2586%25D9%2588%25D8%25B9_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF_2025.Set/file' },
                 { name: 'سـيـت حـزيـن 📁', link: 'https://www.mediafire.com/file/x17axrz8avaoo57/%25D8%25AD%25D8%25B2%25D9%258A%25D9%2586_2025_.Set/file' },
                 { name: 'خسرت كل الناس علشانو 📁', link: 'https://www.mediafire.com/file/2vvs9ybidvcrmk0/%25D8%25AE%25D8%25B3%25D8%25B1%25D8%25AA_%25D9%2583%25D9%2584_%25D8%25A7%25D9%2584%25D9%2586%25D8%25A7%25D8%25B1_%25D8%25B9%25D9%2584%25D9%2589_%25D8%25B2%25D8%25A7%25D9%2586%25D9%2588_2025.Set/file' },
-                { name: 'سيت أناشيد دينية 📁', link: 'https://www.mediafire.com/file/ew9gksgymi4asye/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25A7%25D9%2586%25D8%25A7%25D8%25B4%25D9%258A%25D8%25AF_%25D8%25AF%25D9%258A%25D9%2586%25D9%258A%25D8%25A9_2024.Set/file' },
-                { name: 'سيت جزائري سوفي محلي 📁', link: 'https://www.mediafire.com/file/pmybot9o7yoljqi/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B3%25D9%2588%25D9%2581%25D9%258A_%25D9%2585%25D8%25AD%25D9%2584%25D9%258A_2024.Set/file' },
-                { name: 'سيت يمني 🇾🇪 1', link: 'https://www.mediafire.com/file/axkarf2y5kvy28p/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D9%2586%25D8%25A7%25D8%25A7%25D8%25A7%25D8%25B1_2024_.Set/file' },
-                { name: 'سيت رمضان 2025 📁', link: 'https://www.mediafire.com/file/g1k4b3j2k4fljg0/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B1%25D9%2585%25D8%25B6%25D8%25A7%25D9%2586_2025.Set/file' },
-                { name: 'سيت أصوات عربية 📁', link: 'https://www.mediafire.com/file/vrslmtyl9mfnqhw/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25A7%25D8%25B5%25D9%2588%25D8%25A7%25D8%25AA_2025_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A.Set/file' }
+                { name: 'سيت أناشيد دينية 📁', link: 'https://www.mediafire.com/file/ew9gksgymi4asye/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25A7%25D9%2586%25D8%25A7%25D8%25B4%25D9%258A%25D8%25AF_%25D8%25AF%25D9%258A%25D9%2586%25D9%258A%25D8%25A9_2024.Set/file' },
+                { name: 'سيت جزائري سوفي محلي 📁', link: 'https://www.mediafire.com/file/pmybot9o7yoljqi/%25D8%25B3%25D9%2580%25D9%258A%25D8%25AA_%25D8%25B3%25D9%2588%25D9%2581%25D9%258A_%25D9%2585%25D8%25AD%25D9%2584%25D9%258A_2024.Set/file' },
+                { name: 'سيت يمني 🇾🇪 1', link: 'https://www.mediafire.com/file/axkarf2y5kvy28p/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D9%258A%25D9%2585%25D9%2586%25D9%258A_%25D9%2586%25D8%25A7%25D8%25A7%25D8%25A7%25D8%25B1_2024_.Set/file' },
+                { name: 'سيت رمضان 2025 📁', link: 'https://www.mediafire.com/file/g1k4b3j2k4fljg0/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B1%25D9%2585%25D8%25B6%25D8%25A7%25D9%2586_2025.Set/file' },
+                { name: 'سيت أصوات عربية 📁', link: 'https://www.mediafire.com/file/vrslmtyl9mfnqhw/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25A7%25D8%25B5%25D9%2588%25D8%25A7%25D8%25AA_2025_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A.Set/file' }
             ],
             'dabkat-sitats': [
-                { name: 'سيت دبكة جديد 📁', link: 'https://www.mediafire.com/file/89w0nfrd8xjim6s/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25AF%25D8%25A8%25D9%2583%25D8%25A9_2024_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF.Set/file' },
+                { name: 'سيت دبكة جديد 📁', link: 'https://www.mediafire.com/file/89w0nfrd8xjim6s/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25AF%25D8%25A8%25D9%2583%25D8%25A9_2024_%25D8%25AC%25D8%25AF%25D9%258A%25D8%25AF.Set/file' },
                 { name: 'سـيـت دبـكـة حماس 📁', link: 'https://www.mediafire.com/file/qew7bozgsio4nz1/%25D8%25AF%25D8%25A8%25D9%2583%25D9%2587_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.Set/file' },
-                { name: 'سيت دبكات نااار 📁', link: 'https://www.mediafire.com/file/r986lwnhd7u58kr/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25AF%25D8%25A8%25D9%2583%25D8%25A7%25D8%25AA_%25D9%2586%25D8%25A7%25D8%25B1.Set/file' },
-                { name: 'سيت دبكات إحترافي 📁', link: 'https://www.mediafire.com/file/w9m5d56repe9baa/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B3%25D8%25A8%25D9%2583%25D8%25A9_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2024_.Set/file' },
+                { name: 'سيت دبكات نااار 📁', link: 'https://www.mediafire.com/file/r986lwnhd7u58kr/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25AF%25D8%25A8%25D9%2583%25D8%25A7%25D8%25AA_%25D9%2586%25D8%25A7%25D8%25B1.Set/file' },
+                { name: 'سيت دبكات إحترافي 📁', link: 'https://www.mediafire.com/file/w9m5d56repe9baa/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B3%25D8%25A8%25D9%2583%25D8%25A9_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2024_.Set/file' },
                 { name: 'سيت دبكات 5 📁', link: 'https://t.me/zeekoorg2025/111' }
             ],
             'iraqi-sitats': [
                 { name: 'سيت عراقي 🇮🇶 1 جوبي', link: 'https://www.mediafire.com/file/kbh6kvttcxcudus/2024%25D8%25B9%25D8%25B1%25D8%25A7%25D9%2582%25D9%258A_%25D8%25AC%25D9%2588%25D8%25A8%25D9%258A.Set/file' },
-                { name: 'سيت عراقي 🇮🇶 2', link: 'https://www.mediafire.com/file/wzdph7bm8l9kg3s/%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D8%25B9%25D8%25B1%25D8%25A7%25D9%2582%25D9%258A_zeeko_2023.Set/file' },
+                { name: 'سيت عراقي 🇮🇶 2', link: 'https://www.mediafire.com/file/wzdph7bm8l9kg3s/%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B9%25D8%25B1%25D8%25A7%25D9%2582%25D9%258A_zeeko_2023.Set/file' },
                 { name: 'سيت عراقي 🇮🇶 3', link: 'https://t.me/zeekoorg2025/32' },
                 { name: 'سيت عراقي 🇮🇶 4', link: 'https://t.me/zeekoorg2025/223' },
                 { name: 'سيت عراقي 🇮🇶 5', link: 'https://t.me/zeekoorg2025/274' }
             ],
             'egyptian-sitats': [
-                { name: 'سيت مصري 🇪🇬 1', link: 'https://www.mediafire.com/file/msmi5klswkkji9x/zeeko_org_%25D8%25B3%25D9%2580%25D9%258Y%25D8%25AA_%25D9%2585%25D8%25B5%25D8%25B1%25D9%258A.Set/file' },
+                { name: 'سيت مصري 🇪🇬 1', link: 'https://www.mediafire.com/file/msmi5klswkkji9x/zeeko_org_%25D8%25B3%25D9%2580%25D9%258A%25D9%258A%25D8%25AA_%25D9%2585%25D8%25B5%25D8%25B1%25D9%258A.Set/file' },
                 { name: 'سيت مصري 🇪🇬 2 حفلات', link: 'https://t.me/zeekoorg2025/212' },
                 // تم حذف القسم الثالث الفارغ
-                { name: 'سيت مصري 🇪🇬 4 حفلات', link: 'https://www.mediafire.com/file/sixh9ifkd8sinpz/%25D8%25B3%25D9%258Y%25D8%25AA_%25D9%2585%25D8%25B5%25D8%25B1%25D9%258A_%25D8%25AD%25D9%2581%25D9%2584%25D8%25A7%25D8%25AAzeeko.Set/file' }
+                { name: 'سيت مصري 🇪🇬 4 حفلات', link: 'https://www.mediafire.com/file/sixh9ifkd8sinpz/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D9%2585%25D8%25B5%25D8%25B1%25D9%258A_%25D8%25AD%25D9%2581%25D9%2584%25D8%25A7%25D8%25AAzeeko.Set/file' }
             ],
             'pro-sitats': [
-                { name: 'سيت إحترافي VIP 1', link: 'https://www.mediafire.com/file/isl7zrhen2wze9z/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024.Set/file' },
-                { name: 'سيت إحترافي VIP 2', link: 'https://www.mediafire.com/file/7k8fex5kehpi3u3/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_VIP3_2024.Set/file' },
-                { name: 'سيت إحترافي VIP 3', link: 'https://www.mediafire.com/file/g5tyxwzoagz8d32/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B1%25D9%258A_%25D8%25AC%25D9%258A_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2025.Set/file' },
-                { name: 'سيت إحترافي VIP 4', link: 'https://www.mediafire.com/file/k4nmmbaa32a9lqu/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B2%25D9%2588%25D8%25B1%25D9%258A_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2025.Set/file' },
-                { name: 'سيت إحترافي VIP 5', link: 'https://www.mediafire.com/file/ouymqendx8sfx43/%25D8%25A7%25D9%2584%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25A7%25D9%2584%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_zeko_org.Set/file' },
-                { name: 'سيت إحترافي VIP 6', link: 'https://www.mediafire.com/file/854misv7ubwielp/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B9%25D8%25B2%25D9%2581_%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A.Set/file' },
+                { name: 'سيت إحترافي VIP 1', link: 'https://www.mediafire.com/file/isl7zrhen2wze9z/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_%25D8%25B4%25D8%25B9%25D8%25A8%25D9%258A_2024.Set/file' },
+                { name: 'سيت إحترافي VIP 2', link: 'https://www.mediafire.com/file/7k8fex5kehpi3u3/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_VIP3_2024.Set/file' },
+                { name: 'سيت إحترافي VIP 3', link: 'https://www.mediafire.com/file/g5tyxwzoagz8d32/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B1%25D9%258A_%25D8%25AC%25D9%258A_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2025.Set/file' },
+                { name: 'سيت إحترافي VIP 4', link: 'https://www.mediafire.com/file/k4nmmbaa32a9lqu/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B2%25D9%2588%25D8%25B1%25D9%258A_%25D8%25A5%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_2025.Set/file' },
+                { name: 'سيت إحترافي VIP 5', link: 'https://www.mediafire.com/file/ouymqendx8sfx43/%25D8%25A7%25D9%2584%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25A7%25D9%2584%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A_zeko_org.Set/file' },
+                { name: 'سيت إحترافي VIP 6', link: 'https://www.mediafire.com/file/854misv7ubwielp/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B9%25D8%25B2%25D9%2581_%25D8%25A7%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AD%25D8%25AA%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A.Set/file' },
                 { name: 'سيت إحترافي VIP 7', link: 'https://t.me/zeekoorg2025/231' },
                 { name: 'سيت إحترافي VIP 8', link: 'https://t.me/zeekoorg2025/297' },
                 { name: 'سيت إحترافي VIP 9', link: 'https://t.me/zeekoorg2025/300' },
@@ -1411,24 +1219,24 @@
             ],
             'themes': [
                 { name: 'ثيم ZEEKO ORG 📂 1', link: 'https://www.mediafire.com/file/qgwwmm7w1lrok7s/%25D8%25AB%25D9%258A%25D9%2585_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC777.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 2', link: 'https://www.mediafire.com/file/ra46tq0otr3quy1/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B2%25D9%258Y%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 3', link: 'https://www.mediafire.com/file/3mudguhm42kxjmt/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B2%25D9%258Y%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC_2024.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 4', link: 'https://www.mediafire.com/file/cmkdmyk79yvmf8k/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B2%25D9%258Y%25D9%2580%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC_2024.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 5', link: 'https://www.mediafire.com/file/19xs0x73tqhz6jj/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25A7%25D9%2584%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 6', link: 'https://www.mediafire.com/file/n4km6a2m2phwitp/%25D8%25B3%25D9%258Y%25D8%25AA_zeeko_org_%2528%25D9%25A1%2529.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 7', link: 'https://www.mediafire.com/file/2ldz8vbugvc2p12/%25D8%25B3%25D9%258Y%25D8%25AA_2024_new_9.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 8', link: 'https://www.mediafire.com/file/nh8xiw4cm6ra50c/%25D8%25B3%25D9%258Y%25D8%25AA_2024_VIP.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 9', link: 'https://www.mediafire.com/file/0rdp64cmr8icubl/%25D8%25B3%25D9%258Y%25D8%25AA_%25D9%2585%25D9%2584%25D9%2588%25D9%2588_2025.zip/file' },
-                { name: 'ثيم ZEEKO ORG 📂 10', link: 'https://www.mediafire.com/file/ytahhl5bsqiyzv2/%25D8%25B3%25D9%258Y%25D8%25AA_%25D8%25B2%25D9%2587%25D8%25A8%25D9%258A_2025.zip/file' }
+                { name: 'ثيم ZEEKO ORG 📂 2', link: 'https://www.mediafire.com/file/ra46tq0otr3quy1/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 3', link: 'https://www.mediafire.com/file/3mudguhm42kxjmt/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B2%25D9%258A%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC_2024.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 4', link: 'https://www.mediafire.com/file/cmkdmyk79yvmf8k/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B2%25D9%258A%25D9%2580%25D9%2583%25D9%2588_%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC_2024.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 5', link: 'https://www.mediafire.com/file/19xs0x73tqhz6jj/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25A7%25D9%2584%25D8%25A7%25D9%2588%25D8%25B1%25D8%25AC.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 6', link: 'https://www.mediafire.com/file/n4km6a2m2phwitp/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_zeeko_org_%2528%25D9%25A1%2529.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 7', link: 'https://www.mediafire.com/file/2ldz8vbugvc2p12/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_2024_new_9.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 8', link: 'https://www.mediafire.com/file/nh8xiw4cm6ra50c/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_2024_VIP.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 9', link: 'https://www.mediafire.com/file/0rdp64cmr8icubl/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D9%2585%25D9%2584%25D9%2588%25D9%2588_2025.zip/file' },
+                { name: 'ثيم ZEEKO ORG 📂 10', link: 'https://www.mediafire.com/file/ytahhl5bsqiyzv2/%25D8%25B3%25D9%258A%25D9%258A%25D8%25AA_%25D8%25B2%25D9%2587%25D8%25A8%25D9%258A_2025.zip/file' }
             ]
         };
 
         // متغير لتخزين الرابط الحالي للتحميل
         let currentDownloadLink = '';
-        // متغير لتفعيل Popunder مرة واحدة فقط
-        let popunderActivated = false;
+        // ⭐️ إضافة: رابط Smartlink المباشر
+        const SMART_LINK_URL = 'https://inhabitedgangoppose.com/p3tucc03f?key=7623dd9f41e35c434ea4f7f779466904';
 
-        // ========== 7. تهيئة التطبيق عند تحميل الصفحة ==========
+        // تهيئة التطبيق عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             // عرض رسالة بداية التطبيق مع المؤقت
             showStartupMessage();
@@ -1445,7 +1253,7 @@
 
         // عرض رسالة بداية التطبيق
         function showStartupMessage() {
-            // إخفاء رسالة البداية بعد 3 ثواني تلقائياً (تم التغيير من 5 إلى 3)
+            // إخفاء رسالة البداية بعد 3 ثواني تلقائياً
             const startupTimeout = setTimeout(function() {
                 closeStartupMessage();
             }, 3000);
@@ -1475,6 +1283,18 @@
                     startupBackground.style.display = 'none';
                     // عرض الشاشة الرئيسية بعد إخفاء رسالة البداية
                     document.getElementById('main-screen').style.display = 'block';
+                    
+                    // ⭐️ إضافة: عرض البانر الثابت
+                    document.getElementById('fixed-banner').style.display = 'block';
+                    
+                    // ⭐️ إضافة: تفعيل Social Bar مرة واحدة
+                    if (!localStorage.getItem('socialBarLoaded')) {
+                        const socialBarScript = document.createElement('script');
+                        socialBarScript.type = 'text/javascript';
+                        socialBarScript.src = '//inhabitedgangoppose.com/00/d6/30/00d630998bfd413b77ee02ba5811fcdd.js';
+                        document.head.appendChild(socialBarScript);
+                        localStorage.setItem('socialBarLoaded', 'true');
+                    }
                 }
             }, 50);
         }
@@ -1513,7 +1333,7 @@
             }
         }
 
-        // ========== 8. إعداد المستمعين للأحداث مع التعديلات ==========
+        // إعداد المستمعين للأحداث
         function setupEventListeners() {
             // زر إغلاق رسالة البداية
             document.getElementById('close-startup').addEventListener('click', function() {
@@ -1579,13 +1399,15 @@
                 document.getElementById('overlay').style.display = 'none';
             });
             
-            // ========== 9. تعديل زر "مشاهدة وفتح" (7 ثواني) ==========
             document.getElementById('watch-ad').addEventListener('click', function() {
-                // محاكاة مشاهدة الإعلان (7 ثواني)
+                // محاكاة مشاهدة الإعلان
                 simulateAdWatch(function() {
                     document.getElementById('ad-message').style.display = 'none';
                     document.getElementById('overlay').style.display = 'none';
                     
+                    // ⭐️ إضافة: فتح Smartlink (رابط مباشر) بعد مشاهدة الإعلان
+                    window.open(SMART_LINK_URL, '_blank');
+
                     // فتح الشاشة المستهدفة
                     const targetScreen = document.getElementById('ad-message').getAttribute('data-target');
                     if (targetScreen) {
@@ -1600,18 +1422,20 @@
                 document.getElementById('overlay').style.display = 'none';
             });
             
-            // ========== 10. تعديل زر "مشاهدة وتحميل" (7 ثواني + Popunder) ==========
             document.getElementById('watch-download').addEventListener('click', function() {
-                // محاكاة مشاهدة الإعلان (7 ثواني)
+                // محاكاة مشاهدة الإعلان
                 simulateAdWatch(function() {
                     document.getElementById('download-message').style.display = 'none';
                     document.getElementById('overlay').style.display = 'none';
                     
-                    // ========== تفعيل Popunder عند التحميل فقط ==========
-                    if (!popunderActivated) {
-                        activatePopunder();
-                        popunderActivated = true;
-                    }
+                    // ⭐️ إضافة: تفعيل Popunder عند التحميل فقط
+                    const popunderScript = document.createElement('script');
+                    popunderScript.type = 'text/javascript';
+                    popunderScript.src = '//inhabitedgangoppose.com/30/18/56/3018564963abb3f0a96ca862116b7f4f.js';
+                    document.body.appendChild(popunderScript);
+
+                    // ⭐️ إضافة: فتح Smartlink (رابط مباشر) بعد مشاهدة الإعلان
+                    window.open(SMART_LINK_URL, '_blank');
                     
                     // فتح الرابط في متصفح خارجي
                     if (currentDownloadLink && currentDownloadLink !== '#') {
@@ -1643,33 +1467,10 @@
             document.getElementById('overlay').style.display = 'block';
         }
 
-        // ========== 11. محاكاة مشاهدة الإعلان (7 ثواني) ==========
+        // محاكاة مشاهدة الإعلان
         function simulateAdWatch(callback) {
-            // محاكاة وقت مشاهدة الإعلان (7 ثواني)
-            setTimeout(callback, 7000); // 7 ثواني
-        }
-
-        // ========== 12. دالة تفعيل Popunder ==========
-        function activatePopunder() {
-            // تفعيل كود Popunder الذي تم تحميله مسبقاً
-            try {
-                // هذه دالة عامة قد تكون موجودة في كود Adsterra
-                if (typeof window.adsterra !== 'undefined') {
-                    window.adsterra.runPopunder();
-                }
-                // أو محاولة تنفيذ السكريبت مباشرة
-                var popunderScript = document.getElementById('adsterra-popunder');
-                if (popunderScript) {
-                    // إعادة تحميل السكريبت لتفعيله
-                    var newScript = document.createElement('script');
-                    newScript.type = 'text/javascript';
-                    newScript.src = popunderScript.src;
-                    document.head.appendChild(newScript);
-                }
-                console.log("تم تفعيل Popunder بنجاح");
-            } catch (error) {
-                console.log("خطأ في تفعيل Popunder:", error);
-            }
+            // ⭐️ تم تعديل وقت التأخير إلى 7000 مللي ثانية (7 ثوانٍ)
+            setTimeout(callback, 7000); 
         }
     </script>
 </body>
